@@ -11,6 +11,6 @@ getWordsAPI(page = 1, start = "")
 \item{start}{Start}
 }
 \description{
-Get words by API
+Short description of this function
 }
 

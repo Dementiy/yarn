@@ -8,5 +8,8 @@ Maintainer: Dmitriy Sorokin <dementiy@yandex.ru>
 Description: More about what it does (maybe more than one line)
 Depends:
     R (>= 3.1.1),
-    XML (>= 3.98-1.1)
+    XML (>= 3.98-1.1),
+    httr
+Suggests:
+    httr (>= 0.5)
 License: GPL-3

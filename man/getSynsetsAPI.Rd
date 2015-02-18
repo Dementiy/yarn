@@ -3,20 +3,12 @@
 \alias{getSynsetsAPI}
 \title{Get synsets for a given word id (require registration)}
 \usage{
-getSynsetsAPI(page = 1, id = "")
-
-getSynsetsAPI(page = 1, id = "")
+getSynsetsAPI(word_id)
 }
 \arguments{
-\item{page}{Page}
-
-\item{id}{Id}
-
 \item{word_id}{}
 }
 \description{
 Get synsets for a given word id (require registration)
-
-Get synsets
 }
 

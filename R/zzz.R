@@ -7,6 +7,8 @@ if (!exists(".yarn")) {
   ver <- read.dcf(file.path(libname, pkgname, "DESCRIPTION"), "Version")
   ver <- as.character(ver)
   cat("yarn", ver, "loaded\n")
+  
+  domain <<- 'http://russianword.net/'
 }
 
 #' Update dictionary (current trouble: <yarn ...>)

@@ -11,7 +11,7 @@
 synonyms <- function(word) {
   # Checks parameters
   if (missing(word)) {
-    stop("No word!")
+    stop("Missing word argument")
   }
   
   if (!is.character(word)) {
