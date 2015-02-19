@@ -1,9 +1,13 @@
-#' Get words by API
+#' Получить список всех слов
 #' 
-#' Short description of this function
-#' @param page Page
-#' @param start Start
+#' Поиск по известным словам с постраничной разбивкой. Слово начинается с подстроки word.
+#' @param page Номер страницы
+#' @param start Подстрока
+#' @return На выходе получается массив с объектами класса Word
 #' @import httr
+#' @examples
+#' word_objs <- getWordsAPI(start='машина')
+#' words <- words2df(words_obj)
 #' @export
 getWordsAPI <- function(page=1, start='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -35,7 +39,10 @@ words2df <- function(words) {
   words
 }
 
-# head(words2df(getWordsAPI(page=1, start='помо')))
+
+filterByGrammar <- function(words, grammar) {
+  
+}
 
 # as.data.frame(
 #  do.call(
