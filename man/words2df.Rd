@@ -3,7 +3,7 @@
 \alias{words2df}
 \title{Convert words to data.frame object}
 \usage{
-words2df(words)
+words2df(word_objects)
 }
 \arguments{
 \item{words}{The input words}

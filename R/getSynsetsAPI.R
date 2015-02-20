@@ -9,12 +9,23 @@ getSynsetsAPI <- function(word_id) {
   
   query <- paste(domain, 'words/', word_id, '/synsets.xml', sep='')
   response <- GET(query)
-  content(response, type='text/xml', encoding = 'UTF-8')
+  synset_objects <- content(response, type='text/xml', encoding = 'UTF-8')
+  getNodeSet(synset_objects, "//synsets/synset")
 }
 
-getWordsIdsFromSynset <- function(synset) {
-  
+
+#' Get ids for a given synset
+#' 
+#' @param synset_object
+#' @examples
+#' synsets <- getSynsetsAPI(word_id = 131)
+#' getWordsIdsFromSynset(synsets[[1]])
+#' @export
+getWordsIdsFromSynset <- function(synset_object) {
+  xmlSApply(getNodeSet(synset_object, "words-ids/words-id"), xmlValue)
 }
+
+# getWordsIdsFromSynset(synsets[[1]])
 
 # xmlChildren(getNodeSet(getSynsetsAPI(131), "//synsets/synset/words-ids")[[2]])
 

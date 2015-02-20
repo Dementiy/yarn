@@ -18,21 +18,35 @@ getWordsAPI <- function(page=1, start='') {
   if (start != '')
     query <- paste(query, '?q=', start, '&page=', page, sep='')
   response <- GET(URLencode(query))
-  content(response, type='text/xml', encoding = 'UTF-8')
+  words_xml <- content(response, type='text/xml', encoding = 'UTF-8')
+  getNodeSet(words_xml, "//words/word")
 }
 
+
+# words2df <- function(words) {
+#   words <- as.data.frame(
+#     do.call(rbind,
+#             lapply(xmlChildren(xmlRoot(words)),
+#                    function(node) c(id=xmlValue(xmlChildren(node)$id), 
+#                                     word=xmlValue(xmlChildren(node)$word), 
+#                                     grammar=xmlValue(xmlChildren(node)$grammar)))
+#     )
+#   )
+#   rownames(words) <- NULL
+#   words
+# }
 
 #' Convert words to data.frame object
 #' 
 #' @param words The input words
 #' @export
-words2df <- function(words) {
+words2df <- function(word_objects) {
   words <- as.data.frame(
     do.call(rbind,
-            lapply(xmlChildren(xmlRoot(words)),
-                   function(node) c(id=xmlValue(xmlChildren(node)$id), 
-                                    word=xmlValue(xmlChildren(node)$word), 
-                                    grammar=xmlValue(xmlChildren(node)$grammar)))
+            lapply(word_objects,
+                   function(word_object) c(id=xmlValue(xmlChildren(word_object)$id), 
+                                    word=xmlValue(xmlChildren(word_object)$word), 
+                                    grammar=xmlValue(xmlChildren(word_object)$grammar)))
     )
   )
   rownames(words) <- NULL
@@ -40,9 +54,21 @@ words2df <- function(words) {
 }
 
 
-filterByGrammar <- function(words, grammar) {
-  
+#' Filter words by specified grammar
+#' 
+#' @param words The input words
+#' @param grammar The input grammar
+#' @examples
+#' words_objects <- getWordsAPI(start = 'машина')
+#' filterByGrammar(words_objects, "a")
+#' @export
+filterByGrammar <- function(word_objects, grammar) {
+  Filter(function(word_object) xmlValue(xmlChildren(word_object)$grammar) == grammar, word_objects)
 }
+
+# word_objects <- getWordsAPI(start = 'машина')
+# filterByGrammar(word_objects, "n")
+
 
 # as.data.frame(
 #  do.call(

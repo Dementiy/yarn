@@ -9,7 +9,8 @@ getSynonymsAPI <-function(word_id) {
   
   query <- paste(domain, 'words/', word_id, '/synonyms.xml', sep='')
   response <- GET(query)
-  content(response, type='text/xml', encoding = 'UTF-8')
+  synonyms_objects <- content(response, type='text/xml', encoding = 'UTF-8')
+  getNodeSet(synonyms_objects, "//words/word")
 }
 
 # words2df(getSynonymsAPI(131))
@@ -25,5 +26,6 @@ getRawSynonymsAPI <-function(word_id) {
   
   query <- paste(domain, 'words/', word_id, '/raw_synonyms.xml', sep='')
   response <- GET(query)
-  content(response, type='text/xml', encoding = 'UTF-8')
+  raw_synonyms_objects <- content(response, type='text/xml', encoding = 'UTF-8')
+  getNodeSet(raw_synonyms_objects, "//words/word")
 }

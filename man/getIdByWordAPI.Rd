@@ -11,4 +11,7 @@ getIdByWordAPI(word = "")
 \description{
 Get id for a given word
 }
+\examples{
+word_id <- getIdByWordAPI('машина')
+}
 
