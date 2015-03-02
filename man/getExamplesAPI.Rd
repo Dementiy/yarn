@@ -11,4 +11,8 @@ getExamplesAPI(word_id = "")
 \description{
 Примеры употребления слова, привязанные в синсетах к слову с указанным идентификатором id
 }
+\examples{
+word_id <- getIdByWordAPI("машина")
+examples <- examples2df(getExamplesAPI(word_id))
+}
 

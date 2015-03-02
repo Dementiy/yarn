@@ -16,4 +16,11 @@ The output is an array with objects of class Definition
 \description{
 Get a list of all definitions with page breakdown
 }
+\examples{
+definition_objs <- getDefinitionsAPI(page=1)
+definitions <- definitions2df(definition_objs)
+
+definition_obj <- getDefinitionsAPI(id=1)
+definition <- definitions2df(definition_obj)
+}
 

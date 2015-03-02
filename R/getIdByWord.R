@@ -1,7 +1,7 @@
-#' Get id by word
+#' Get id for a given word
 #'
 #' @param word The input word
-#' @return Word id
+#' @return Id
 #' @import XML
 #' @export
 getIdByWord <- function(word = "") {

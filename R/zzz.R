@@ -10,21 +10,3 @@ if (!exists(".yarn")) {
   
   domain <<- 'http://russianword.net/'
 }
-
-#' Update dictionary (current trouble: <yarn ...>)
-#' 
-#' @param url URL
-#' @param set Set dictionary (by default True)
-# updateDict <- function(url='http://russianword.net/yarn.xml', set=TRUE) {
-#   download.file(url, destfile = 'yarn.xml')
-#   if (set)
-#     setYarn('yarn.xml')
-# }
-# 
-# 
-# getDict <- function() {
-#   if (!exists('yarn.root') || is.null(yarn.root))
-#     stop('could not find YARN dictionary. For more details see ?setYarn')
-#   else
-#     yarn.root
-# }

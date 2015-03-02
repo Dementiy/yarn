@@ -1,7 +1,10 @@
-#' Get synonymous for a given word id (require registration)
+#' Get synonymous for a given word id
 #' 
 #' @param word_id Id
 #' @return The output is an array with objects of class Word
+#' @examples
+#' word_id <- getIdByWordAPI("машина")
+#' synonymous <- words2df(getSynonymsAPI(word_id))
 #' @export
 getSynonymsAPI <-function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -14,9 +17,8 @@ getSynonymsAPI <-function(word_id) {
   getNodeSet(synonyms_objects, "//words/word")
 }
 
-# words2df(getSynonymsAPI(131))
 
-#' Get raw synonymous for a given word id (require registration)
+#' Get raw synonymous for a given word id
 #' 
 #' @param word_id Id
 #' @return The output is an array with objects of class Word

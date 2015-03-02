@@ -11,4 +11,8 @@ getRawExamplesAPI(word_id = "")
 \description{
 Примеры употребления из «сырых» словарей для слова с указанным идентификатором id
 }
+\examples{
+word_id <- getIdByWordAPI("машина")
+examples <- examples2df(getRawExamplesAPI(word_id))
+}
 

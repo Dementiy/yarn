@@ -1,11 +1,11 @@
-#' Возвращает слово по его индентификатору
+#' Get word by specified id
 #' 
-#' Краткое описание функции
-#' @param id Идентификатор искомого слова
-#' @return Слово
+#' @param id Id
+#' @return The word
 #' @export
 #' @import XML
 getWordById <- function(id) {
+  if (!is.character(id)) id <- paste("w", id, sep="")
   # if (is.null(.yarn$root)) stop("You must specify the yarn dictionary")
   root <- getDict()
   

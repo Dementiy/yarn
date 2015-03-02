@@ -1,7 +1,6 @@
-#' Установить путь к словарю
+#' Set path to the dictionary
 #'
-#' Краткое описание функции
-#' @param path Путь к словарю
+#' @param path Path to the dictionary (XML file)
 #' @export
 #' @import XML
 setDict <- function(path) {
@@ -15,6 +14,18 @@ setDict <- function(path) {
     .yarn$root <- NULL
     stop("Wrong dictionary")
   }
+}
+
+
+#' Update dictionary (current trouble: <yarn ...>)
+#' 
+#' @param url URL
+#' @param set Set dictionary (by default True)
+#' @export
+updateDict <- function(url='http://russianword.net/yarn.xml', set=TRUE) {
+  download.file(url, destfile = 'yarn.xml')
+  if (set)
+    setDict('yarn.xml')
 }
 
 

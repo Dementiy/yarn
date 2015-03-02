@@ -1,9 +1,8 @@
-#' Поиск синонимов для указанного слова
+#' Get synonymous for a given word id
 #'
-#' Краткое описание работы функции
-#' @param word Слово, для которого производится поиск синонимов
-#' @return Список найденных синонимов
-#' @seealso \code{\link{synonymsAPI}}
+#' @param word The input word
+#' @return ???
+#' @seealso \code{\link{getSynonymsAPI}}
 #' @import XML
 #' @examples
 #' car_synonyms <- synonyms("машина")
@@ -17,11 +16,6 @@ synonyms <- function(word) {
   if (!is.character(word)) {
     stop("Word must be a string")
   }
-  
-  # if (is.null(.yarn$root)) {
-  #   stop("You must specify the yarn dictionary")
-  # }
-  # root <- getDict()
   
   # Find all synsets for a given word
   synsets <- getSynsets(word)

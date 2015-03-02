@@ -6,7 +6,9 @@
 getWordRawDefinitionsAPI(word_id = "")
 }
 \arguments{
-\item{id}{Id}
+\item{id}{Id
+word_id <- getIdByWordAPI("машина")
+definitions <- definitions2df(getWordRawDefinitionsAPI(word_id))}
 }
 \description{
 Определения из «сырых» словарей для слова с указанным идентификатором id

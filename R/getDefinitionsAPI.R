@@ -3,6 +3,12 @@
 #' @param page The page number
 #' @param id Id
 #' @return The output is an array with objects of class Definition
+#' @examples
+#' definition_objs <- getDefinitionsAPI(page=1)
+#' definitions <- definitions2df(definition_objs)
+#' 
+#' definition_obj <- getDefinitionsAPI(id=1)
+#' definition <- definitions2df(definition_obj)
 #' @export
 getDefinitionsAPI <- function(page=1, id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -19,11 +25,13 @@ getDefinitionsAPI <- function(page=1, id='') {
   getNodeSet(definition_objects, "//definition")
 }
 
-# xmlValue(xmlChildren(xmlChildren(getDefinitionsAPI(id=0))$definition)$text)
 
 #' Определения, привязанные в синсетах к слову с указанным идентификатором id
 #' 
 #' @param id Id
+#' @examples
+#' word_id <- getIdByWordAPI("машина")
+#' definitions <- definitions2df(getWordDefinitionsAPI(word_id))
 #' @export
 getWordDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -59,6 +67,8 @@ definitions2df <- function(definition_objects) {
 #' Определения из «сырых» словарей для слова с указанным идентификатором id
 #' 
 #' @param id Id
+#' word_id <- getIdByWordAPI("машина")
+#' definitions <- definitions2df(getWordRawDefinitionsAPI(word_id))
 #' @export
 getWordRawDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -72,12 +82,13 @@ getWordRawDefinitionsAPI <- function(word_id='') {
   getNodeSet(definition_objects, "//definition")
 }
 
-# sapply(getNodeSet(getWordDefinitionsAPI(113), "//definitions/definition/text"), function(definition) xmlValue(definition))
-
 
 #' Примеры употребления слова, привязанные в синсетах к слову с указанным идентификатором id
 #' 
 #' @param id Id
+#' @examples
+#' word_id <- getIdByWordAPI("машина")
+#' examples <- examples2df(getExamplesAPI(word_id))
 #' @export
 getExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -95,6 +106,9 @@ getExamplesAPI <- function(word_id='') {
 #' Примеры употребления из «сырых» словарей для слова с указанным идентификатором id
 #' 
 #' @param id Id
+#' @examples
+#' word_id <- getIdByWordAPI("машина")
+#' examples <- examples2df(getRawExamplesAPI(word_id))
 #' @export
 getRawExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -103,10 +117,10 @@ getRawExamplesAPI <- function(word_id='') {
   
   query <- paste(domain, 'words/', word_id, '/raw_examples.xml', sep='')
   response <- GET(query)
-  # content(response, type='text/xml', encoding = 'UTF-8')
   raw_example_objects <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(raw_example_objects, "//example")
 }
+
 
 #' Преобразовать список объектов во фрейм данных
 #' 

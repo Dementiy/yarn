@@ -11,4 +11,8 @@ getWordDefinitionsAPI(word_id = "")
 \description{
 Определения, привязанные в синсетах к слову с указанным идентификатором id
 }
+\examples{
+word_id <- getIdByWordAPI("машина")
+definitions <- definitions2df(getWordDefinitionsAPI(word_id))
+}
 
