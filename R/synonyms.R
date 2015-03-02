@@ -4,10 +4,10 @@
 #' @param word Слово, для которого производится поиск синонимов
 #' @return Список найденных синонимов
 #' @seealso \code{\link{synonymsAPI}}
-#' @export
 #' @import XML
 #' @examples
 #' car_synonyms <- synonyms("машина")
+#' @export
 synonyms <- function(word) {
   # Checks parameters
   if (missing(word)) {

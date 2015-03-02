@@ -1,22 +1,22 @@
-#' Получить список всех слов
+#' A list of all words
 #' 
-#' Поиск по известным словам с постраничной разбивкой. Слово начинается с подстроки word.
-#' @param page Номер страницы
-#' @param start Подстрока
-#' @return На выходе получается массив с объектами класса Word
+#' The full list of known words with page breakdown. 
+#' @param page Page number
+#' @param q The word starts with the substring `word`
+#' @return The output is an array with objects of class Word
 #' @import httr
 #' @examples
-#' word_objs <- getWordsAPI(start='машина')
+#' word_objs <- getWordsAPI(q='машина')
 #' words <- words2df(words_obj)
 #' @export
-getWordsAPI <- function(page=1, start='') {
+getWordsAPI <- function(page=1, q='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
   query <- paste(domain, 'words.xml', sep='')
-  if (start != '')
-    query <- paste(query, '?q=', start, '&page=', page, sep='')
+  if (q != '')
+    query <- paste(query, '?q=', q, '&page=', page, sep='')
   response <- GET(URLencode(query))
   words_xml <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(words_xml, "//words/word")

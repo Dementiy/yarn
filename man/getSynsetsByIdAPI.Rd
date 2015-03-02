@@ -13,4 +13,8 @@ getSynsetsByIdAPI(page = 1, id = "")
 \description{
 Get synsets
 }
+\examples{
+synsets <- getSynsetsByIdAPI()
+words_ids <- getWordsIdsFromSynset(synsets[[1]])
+}
 

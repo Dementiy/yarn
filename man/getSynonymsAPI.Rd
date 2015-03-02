@@ -8,6 +8,9 @@ getSynonymsAPI(word_id)
 \arguments{
 \item{word_id}{Id}
 }
+\value{
+The output is an array with objects of class Word
+}
 \description{
 Get synonymous for a given word id (require registration)
 }

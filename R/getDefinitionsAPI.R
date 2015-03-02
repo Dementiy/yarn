@@ -1,7 +1,8 @@
-#' Get definitions
+#' Get a list of all definitions with page breakdown
 #' 
-#' @param page Page
+#' @param page The page number
 #' @param id Id
+#' @return The output is an array with objects of class Definition
 #' @export
 getDefinitionsAPI <- function(page=1, id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {

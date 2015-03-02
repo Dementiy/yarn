@@ -1,6 +1,7 @@
-#' Get synsets for a given word id (require registration)
+#' Get synsets for a given word id
 #' 
-#' @param word_id
+#' @param word_id Id
+#' @return The output is an array with objects of class Synset
 #' @export
 getSynsetsAPI <- function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {

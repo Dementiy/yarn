@@ -1,6 +1,7 @@
 #' Get synonymous for a given word id (require registration)
 #' 
 #' @param word_id Id
+#' @return The output is an array with objects of class Word
 #' @export
 getSynonymsAPI <-function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -18,6 +19,7 @@ getSynonymsAPI <-function(word_id) {
 #' Get raw synonymous for a given word id (require registration)
 #' 
 #' @param word_id Id
+#' @return The output is an array with objects of class Word
 #' @export
 getRawSynonymsAPI <-function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {
