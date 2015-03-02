@@ -17,7 +17,7 @@ The output is an array with objects of class Word
 The full list of known words with page breakdown.
 }
 \examples{
-word_objs <- getWordsAPI(q='машина')
-words <- words2df(words_obj)
+word_objs <- getWordsAPI(q = 'машина')
+words <- words2df(word_objs)
 }
 

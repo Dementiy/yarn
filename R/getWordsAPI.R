@@ -6,8 +6,8 @@
 #' @return The output is an array with objects of class Word
 #' @import httr
 #' @examples
-#' word_objs <- getWordsAPI(q='машина')
-#' words <- words2df(words_obj)
+#' word_objs <- getWordsAPI(q = 'машина')
+#' words <- words2df(word_objs)
 #' @export
 getWordsAPI <- function(page=1, q='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -22,19 +22,6 @@ getWordsAPI <- function(page=1, q='') {
   getNodeSet(words_xml, "//words/word")
 }
 
-
-# words2df <- function(words) {
-#   words <- as.data.frame(
-#     do.call(rbind,
-#             lapply(xmlChildren(xmlRoot(words)),
-#                    function(node) c(id=xmlValue(xmlChildren(node)$id), 
-#                                     word=xmlValue(xmlChildren(node)$word), 
-#                                     grammar=xmlValue(xmlChildren(node)$grammar)))
-#     )
-#   )
-#   rownames(words) <- NULL
-#   words
-# }
 
 #' Convert words to data.frame object
 #' 
@@ -59,22 +46,10 @@ words2df <- function(word_objects) {
 #' @param words The input words
 #' @param grammar The input grammar
 #' @examples
-#' words_objects <- getWordsAPI(start = 'машина')
-#' filterByGrammar(words_objects, "a")
+#' word_objs <- getWordsAPI(q = 'машина')
+#' filtered_word_objs <- filterByGrammar(word_objs, "a")
+#' filtered_words <- words2df(filtered_word_objs)
 #' @export
 filterByGrammar <- function(word_objects, grammar) {
   Filter(function(word_object) xmlValue(xmlChildren(word_object)$grammar) == grammar, word_objects)
 }
-
-# word_objects <- getWordsAPI(start = 'машина')
-# filterByGrammar(word_objects, "n")
-
-
-# as.data.frame(
-#  do.call(
-#   rbind, 
-#   lapply(
-#      getNodeSet(words_list, "//words/word"), function(node) c(Word = xmlValue(xmlChildren(node)$word), Id = xmlValue(xmlChildren(node)$id))
-#   )
-#  )
-# )
