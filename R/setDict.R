@@ -1,4 +1,4 @@
-#' Set path to the dictionary
+#' Set the path to the dictionary
 #'
 #' @param path Path to the dictionary (XML file)
 #' @export
@@ -17,7 +17,7 @@ setDict <- function(path) {
 }
 
 
-#' Update dictionary (current trouble: <yarn ...>)
+#' Download dictionary
 #' 
 #' @param url URL
 #' @param set Set dictionary (by default True)

@@ -1,7 +1,7 @@
 #' Get synonymous for a given word id
 #'
 #' @param word The input word
-#' @return ???
+#' @return List of all synonyms for a given word
 #' @seealso \code{\link{getSynonymsAPI}}
 #' @import XML
 #' @examples
