@@ -1,9 +1,8 @@
 #' Get synonymous for a given word id
 #'
 #' @param word The input word
-#' @return List of all synonyms for a given word
+#' @return A character vector holding the synonyms for the given word id
 #' @seealso \code{\link{getSynonymsAPI}}
-#' @import XML
 #' @examples
 #' car_synonyms <- synonyms("машина")
 #' @export

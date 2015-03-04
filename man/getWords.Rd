@@ -8,7 +8,14 @@ getWords(synset)
 \arguments{
 \item{synset}{The synset whose words are returned}
 }
+\value{
+A character vector holding the words
+}
 \description{
 Get the words in a synset
+}
+\examples{
+synsets <- getSynsets('музыка')
+getWords(synsets[[1]])
 }
 

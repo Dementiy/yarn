@@ -9,13 +9,19 @@ getSynonymsAPI(word_id)
 \item{word_id}{Id}
 }
 \value{
-The output is an array with objects of class Word
+A list holding the synonums for a given word id
 }
 \description{
 Get synonymous for a given word id
 }
 \examples{
 word_id <- getIdByWordAPI("машина")
-synonymous <- words2df(getSynonymsAPI(word_id))
+words2df(getSynonymsAPI(word_id))
+}
+\references{
+Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
+}
+\seealso{
+\code{\link{synonyms}, \link{getRawSynonymsAPI}}
 }
 

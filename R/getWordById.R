@@ -1,12 +1,13 @@
-#' Get word by specified id
+#' Get the word for a given id
 #' 
-#' @param word_id Id
+#' @param word_id The input word id
 #' @return The word
+#' @seealso \code{\link{getIdByWord}}
+#' @examples
+#' getWordById(131)
 #' @export
-#' @import XML
 getWordById <- function(word_id) {
   if (!is.character(word_id)) word_id <- paste("w", word_id, sep="")
-  # if (is.null(.yarn$root)) stop("You must specify the yarn dictionary")
   root <- getDict()
   
   # Can reproduce NA's!!!

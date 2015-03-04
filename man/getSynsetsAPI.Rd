@@ -6,12 +6,18 @@
 getSynsetsAPI(word_id)
 }
 \arguments{
-\item{word_id}{Id}
+\item{word_id}{The input word id}
 }
 \value{
-The output is an array with objects of class Synset
+A list of synsets
 }
 \description{
 Get synsets for a given word id
+}
+\examples{
+getSynsets(131)
+}
+\references{
+Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
 }
 

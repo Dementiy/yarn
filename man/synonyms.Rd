@@ -9,7 +9,7 @@ synonyms(word)
 \item{word}{The input word}
 }
 \value{
-???
+A character vector holding the synonyms for the given word id
 }
 \description{
 Get synonymous for a given word id

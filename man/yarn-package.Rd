@@ -3,38 +3,27 @@
 \alias{yarn}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
+YARN interface
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+An interface to YARN API. YARN (Yet Another RussNet) is an electronic thesaurus of Russian language, open resource for free access. Words are ordered by semantic proximity.
 }
 \details{
 \tabular{ll}{
 Package: \tab yarn\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2014-11-15\cr
-License: \tab What license is it under?\cr
+Date: \tab 2015-03-05\cr
+License: \tab GPL-3\cr
 }
-~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
-Who wrote it
+Dmitriy Sorokin
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+Maintainer: Dmitriy Sorokin <dementiy@yandex.ru>
 }
 \references{
-~~ Literature or other references for background information ~~
+Braslavski P., Ustalov D., Mukhin M. A Spinning Wheel for YARN: User Interface for a Crowdsourced Thesaurus // Proceedings of the Demonstrations at the 14th Conference of the European Chapter of the Association for Computational Linguistics. — Gothenburg, Sweden : Association for Computational Linguistics, 2014. — P. 101–104
 }
 ~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
-\keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
-\examples{
-~~ simple examples of the most important functions ~~
-}
+\keyword{ wordnet, thesaurus  }

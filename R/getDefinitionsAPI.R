@@ -1,21 +1,23 @@
 #' Get a list of all definitions with page breakdown
 #' 
 #' @param page The page number
-#' @param id Id
-#' @return The output is an array with objects of class Definition
+#' @param id The input definition id
+#' @return A list of objects holding definitions for a given id
+#' @references
+#' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
 #' @examples
 #' definition_objs <- getDefinitionsAPI(page=1)
-#' definitions <- definitions2df(definition_objs)
+#' definitions2df(definition_objs)
 #' 
 #' definition_obj <- getDefinitionsAPI(id=1)
-#' definition <- definitions2df(definition_obj)
+#' definitions2df(definition_obj)
 #' @export
 getDefinitionsAPI <- function(page=1, id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
-  query <- paste(domain, 'definitions', sep='')
+  query <- paste(.yarn$domain, 'definitions', sep='')
   if (id != '')
     query <- paste(query, '/', id, '.xml', sep='')
   else
@@ -26,29 +28,30 @@ getDefinitionsAPI <- function(page=1, id='') {
 }
 
 
-#' Определения, привязанные в синсетах к слову с указанным идентификатором id
+#' Definitions, bound to the given word id in synset
 #' 
-#' @param id Id
+#' @param id The input word id
+#' @return A list of objects holding definitions for a given word id
+#' @seealso \code{\link{getWordRawDefinitionsAPI}}
 #' @examples
 #' word_id <- getIdByWordAPI("машина")
-#' definitions <- definitions2df(getWordDefinitionsAPI(word_id))
+#' definitions2df(getWordDefinitionsAPI(word_id))
 #' @export
 getWordDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
-  query <- paste(domain, 'words/', word_id, '/definitions.xml', sep='')
+  query <- paste(.yarn$domain, 'words/', word_id, '/definitions.xml', sep='')
   response <- GET(query)
-  # content(response, type='text/xml', encoding = 'UTF-8')
   definition_objects <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(definition_objects, "//definition")
 }
 
 
-#' Преобразовать список объектов во фрейм данных
+#' Convert a list of definitions to data frame
 #' 
-#' @param definitions
+#' @param definition_objects A list with objects of class Definition
 #' @export
 definitions2df <- function(definition_objects) {
   definitions <- as.data.frame(
@@ -64,67 +67,72 @@ definitions2df <- function(definition_objects) {
 }
 
 
-#' Определения из «сырых» словарей для слова с указанным идентификатором id
+#' Definitions from the "raw" dictionaries for a given word id
 #' 
-#' @param id Id
+#' @param id The input word id
+#' @return A list of objects holding definitions for a given word id
+#' @seealso \code{\link{getWordDefinitionsAPI}}
+#' @examples
 #' word_id <- getIdByWordAPI("машина")
-#' definitions <- definitions2df(getWordRawDefinitionsAPI(word_id))
+#' definitions2df(getWordRawDefinitionsAPI(word_id))
 #' @export
 getWordRawDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
-  query <- paste(domain, 'words/', word_id, '/raw_definitions.xml', sep='')
+  query <- paste(.yarn$domain, 'words/', word_id, '/raw_definitions.xml', sep='')
   response <- GET(query)
-  # content(response, type='text/xml', encoding = 'UTF-8')
   definition_objects <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(definition_objects, "//definition")
 }
 
 
-#' Примеры употребления слова, привязанные в синсетах к слову с указанным идентификатором id
+#' Word usage examples, bound to the given word id in synsets
 #' 
-#' @param id Id
+#' @param id The input word id
+#' @return A list of objects holding examples for a given word id
+#' @seealso \code{\link{getRawExamplesAPI}}
 #' @examples
 #' word_id <- getIdByWordAPI("машина")
-#' examples <- examples2df(getExamplesAPI(word_id))
+#' examples2df(getExamplesAPI(word_id))
 #' @export
 getExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
-  query <- paste(domain, 'words/', word_id, '/examples.xml', sep='')
+  query <- paste(.yarn$domain, 'words/', word_id, '/examples.xml', sep='')
   response <- GET(query)
-  # content(response, type='text/xml', encoding = 'UTF-8')
   example_objects <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(example_objects, "//example")
 }
 
 
-#' Примеры употребления из «сырых» словарей для слова с указанным идентификатором id
+#' Word usage examples from the "raw" dictionaries for a given word id
 #' 
-#' @param id Id
+#' @param id The input word id
+#' @return A list of objects holding examples for a given word id
+#' @seealso \code{\link{getExamplesAPI}}
 #' @examples
 #' word_id <- getIdByWordAPI("машина")
-#' examples <- examples2df(getRawExamplesAPI(word_id))
+#' examples2df(getRawExamplesAPI(word_id))
 #' @export
 getRawExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
   
-  query <- paste(domain, 'words/', word_id, '/raw_examples.xml', sep='')
+  query <- paste(.yarn$domain, 'words/', word_id, '/raw_examples.xml', sep='')
   response <- GET(query)
   raw_example_objects <- content(response, type='text/xml', encoding = 'UTF-8')
   getNodeSet(raw_example_objects, "//example")
 }
 
 
-#' Преобразовать список объектов во фрейм данных
+#' Convert a list of examples to data frame
 #' 
-#' @param examples
+#' @param example_objects A list with objects of class Example
 #' @export
 examples2df <- function(example_objects) {
   examples <- as.data.frame(

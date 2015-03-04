@@ -1,20 +1,25 @@
-#' A list of all words
+#' Get a list of all words from a YARN dictionary
 #' 
-#' The full list of known words with page breakdown. 
 #' @param page Page number
 #' @param q The word starts with the substring `word`
-#' @return The output is an array with objects of class Word
-#' @import httr
+#' @return A list with objects of class Word
+#' @references
+#' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
 #' @examples
 #' word_objs <- getWordsAPI(q = 'машина')
-#' words <- words2df(word_objs)
+#' words2df(word_objs)
+#' 
+#' word_objs <- getWordsAPI(page = 2)
+#' words2df(word_objs)
 #' @export
 getWordsAPI <- function(page=1, q='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("httr package needed for this function to work. Please install it.", .call = FALSE)
   }
+  if (!is.numeric(page)) stop('page must be an integer value')
+  if (q != '' && !is.character(q)) stop('q must be a character')
   
-  query <- paste(domain, 'words.xml', sep='')
+  query <- paste(.yarn$domain, 'words.xml', sep='')
   if (q != '')
     query <- paste(query, '?q=', q, '&page=', page, sep='')
   response <- GET(URLencode(query))
@@ -23,9 +28,11 @@ getWordsAPI <- function(page=1, q='') {
 }
 
 
-#' Convert words to data.frame object
+#' Convert words to a Data Frame
 #' 
-#' @param words The input words
+#' @param word_objects A list with objects of class Word
+#' @return Returns a data frame
+#' @seealso \code{\link{getWordsAPI}}
 #' @export
 words2df <- function(word_objects) {
   words <- as.data.frame(
@@ -41,14 +48,15 @@ words2df <- function(word_objects) {
 }
 
 
-#' Filter words by specified grammar
+#' Filter a list of words by specified grammar
 #' 
-#' @param words The input words
-#' @param grammar The input grammar
+#' @param word_objects A list with objects of class Word
+#' @param grammar The input grammar. Must be either "a" (adjective), "v" (verb) or "n" (noun)
+#' @return A list of words for a given grammar
 #' @examples
 #' word_objs <- getWordsAPI(q = 'машина')
 #' filtered_word_objs <- filterByGrammar(word_objs, "a")
-#' filtered_words <- words2df(filtered_word_objs)
+#' words2df(filtered_word_objs)
 #' @export
 filterByGrammar <- function(word_objects, grammar) {
   Filter(function(word_object) xmlValue(xmlChildren(word_object)$grammar) == grammar, word_objects)

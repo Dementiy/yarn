@@ -8,7 +8,16 @@ getSynsets(word)
 \arguments{
 \item{word}{The input word}
 }
+\value{
+A list of synsets
+}
 \description{
 Get synsets for a given word
+}
+\examples{
+getSynsets('музыка')
+}
+\seealso{
+\code{\link{getSynsetsAPI}}
 }
 

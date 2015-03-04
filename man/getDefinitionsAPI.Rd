@@ -8,19 +8,22 @@ getDefinitionsAPI(page = 1, id = "")
 \arguments{
 \item{page}{The page number}
 
-\item{id}{Id}
+\item{id}{The input definition id}
 }
 \value{
-The output is an array with objects of class Definition
+A list of objects holding definitions for a given id
 }
 \description{
 Get a list of all definitions with page breakdown
 }
 \examples{
 definition_objs <- getDefinitionsAPI(page=1)
-definitions <- definitions2df(definition_objs)
+definitions2df(definition_objs)
 
 definition_obj <- getDefinitionsAPI(id=1)
-definition <- definitions2df(definition_obj)
+definitions2df(definition_obj)
+}
+\references{
+Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
 }
 

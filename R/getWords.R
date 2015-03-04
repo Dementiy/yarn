@@ -1,7 +1,10 @@
 #' Get the words in a synset
 #' 
 #' @param synset The synset whose words are returned
-#' @import XML
+#' @return A character vector holding the words
+#' @examples
+#' synsets <- getSynsets('музыка')
+#' getWords(synsets[[1]])
 #' @export
 getWords <- function(synset) {
   # if (is.null(.yarn$root)) stop('you must specify the yarn dictionary')
