@@ -5,12 +5,13 @@
 #' @return A list with objects of class Word
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
-#' word_objs <- getWordsAPI(q = 'машина')
+#' @examples \dontrun{
+#' word_objs <- getWordsAPI(q = 'house')
 #' words2df(word_objs)
 #' 
 #' word_objs <- getWordsAPI(page = 2)
 #' words2df(word_objs)
+#' }
 #' @export
 getWordsAPI <- function(page=1, q='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -54,7 +55,7 @@ words2df <- function(word_objects) {
 #' @param grammar The input grammar. Must be either "a" (adjective), "v" (verb) or "n" (noun)
 #' @return A list of words for a given grammar
 #' @examples
-#' word_objs <- getWordsAPI(q = 'машина')
+#' word_objs <- getWordsAPI(q = 'house')
 #' filtered_word_objs <- filterByGrammar(word_objs, "a")
 #' words2df(filtered_word_objs)
 #' @export

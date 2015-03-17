@@ -15,7 +15,9 @@ A character vector holding the synonyms for the given word id
 Get synonymous for a given word id
 }
 \examples{
-car_synonyms <- synonyms("машина")
+\dontrun{
+synonyms("house")
+}
 }
 \seealso{
 \code{\link{getSynonymsAPI}}

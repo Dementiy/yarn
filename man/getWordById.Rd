@@ -15,7 +15,9 @@ The word
 Get the word for a given id
 }
 \examples{
+\dontrun{
 getWordById(131)
+}
 }
 \seealso{
 \code{\link{getIdByWord}}

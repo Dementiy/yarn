@@ -1,8 +1,9 @@
 #' Set the path to the dictionary
 #'
 #' @param path Path to the YARN dictionary
-#' @examples
+#' @examples \dontrun{
 #' setDict("yarn.xml")
+#' }
 #' @export
 setDict <- function(path) {
   if (!file.exists(path)) {
@@ -21,19 +22,19 @@ setDict <- function(path) {
 #' Download dictionary
 #' 
 #' @param url URL
-#' @param set Set dictionary (by default True)
+#' @param set Set dictionary
 #' @export
-# downloadDict <- function(url='http://russianword.net/yarn.xml', set=TRUE) {
-#   download.file(url, destfile = 'yarn.xml')
-#   if (set)
-#     setDict('yarn.xml')
-# }
+downloadDict <- function(url='http://russianword.net/yarn.xml', set=TRUE) {
+  download.file(url, destfile = 'yarn.xml')
+  if (set)
+    setDict('yarn.xml')
+}
 
 
 getDict <- function() {
   if (!is.null(.yarn$root)) {
     .yarn$root
   } else {
-    stop("Could not find YARN dictionary. For more details see ?setDict")
+    stop("Could not find YARN dictionary. For more details see ?setDict or ?downloadDict")
   }
 }

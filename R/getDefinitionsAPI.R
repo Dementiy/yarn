@@ -5,12 +5,13 @@
 #' @return A list of objects holding definitions for a given id
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
+#' @examples \dontrun{
 #' definition_objs <- getDefinitionsAPI(page=1)
 #' definitions2df(definition_objs)
 #' 
 #' definition_obj <- getDefinitionsAPI(id=1)
 #' definitions2df(definition_obj)
+#' }
 #' @export
 getDefinitionsAPI <- function(page=1, id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -30,12 +31,13 @@ getDefinitionsAPI <- function(page=1, id='') {
 
 #' Definitions, bound to the given word id in synset
 #' 
-#' @param id The input word id
+#' @param word_id The input word id
 #' @return A list of objects holding definitions for a given word id
 #' @seealso \code{\link{getWordRawDefinitionsAPI}}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' definitions2df(getWordDefinitionsAPI(word_id))
+#' }
 #' @export
 getWordDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -69,12 +71,13 @@ definitions2df <- function(definition_objects) {
 
 #' Definitions from the "raw" dictionaries for a given word id
 #' 
-#' @param id The input word id
+#' @param word_id The input word id
 #' @return A list of objects holding definitions for a given word id
 #' @seealso \code{\link{getWordDefinitionsAPI}}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' definitions2df(getWordRawDefinitionsAPI(word_id))
+#' }
 #' @export
 getWordRawDefinitionsAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -90,12 +93,13 @@ getWordRawDefinitionsAPI <- function(word_id='') {
 
 #' Word usage examples, bound to the given word id in synsets
 #' 
-#' @param id The input word id
+#' @param word_id The input word id
 #' @return A list of objects holding examples for a given word id
 #' @seealso \code{\link{getRawExamplesAPI}}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' examples2df(getExamplesAPI(word_id))
+#' }
 #' @export
 getExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -111,12 +115,13 @@ getExamplesAPI <- function(word_id='') {
 
 #' Word usage examples from the "raw" dictionaries for a given word id
 #' 
-#' @param id The input word id
+#' @param word_id The input word id
 #' @return A list of objects holding examples for a given word id
 #' @seealso \code{\link{getExamplesAPI}}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' examples2df(getRawExamplesAPI(word_id))
+#' }
 #' @export
 getRawExamplesAPI <- function(word_id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {

@@ -12,6 +12,8 @@ setDict(path)
 Set the path to the dictionary
 }
 \examples{
+\dontrun{
 setDict("yarn.xml")
+}
 }
 

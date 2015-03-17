@@ -3,8 +3,9 @@
 #' @param word The input word
 #' @return A character vector holding the synonyms for the given word id
 #' @seealso \code{\link{getSynonymsAPI}}
-#' @examples
-#' car_synonyms <- synonyms("машина")
+#' @examples \dontrun{
+#' synonyms("house")
+#' }
 #' @export
 synonyms <- function(word) {
   # Checks parameters

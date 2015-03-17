@@ -1,15 +1,15 @@
 Package: yarn
 Type: Package
-Title: YARN interface
+Title: YARN Interface
 Version: 0.1
-Date: 2015-03-05
+Date: 2015-03-08
 Author: Dmitriy Sorokin
 Maintainer: Dmitriy Sorokin <dementiy@yandex.ru>
 Description: An interface to YARN API. YARN (Yet Another RussNet) is an
     electronic thesaurus of Russian language, open resource for free access.
     Words are ordered by semantic proximity.
 Depends:
-    R (>= 3.1.1),
-    XML (>= 3.98-1.1),
-    httr (>= 0.5)
+    R (>= 3.0.0),
+    XML,
+    httr
 License: GPL-3

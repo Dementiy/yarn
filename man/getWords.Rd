@@ -15,7 +15,9 @@ A character vector holding the words
 Get the words in a synset
 }
 \examples{
-synsets <- getSynsets('музыка')
+\dontrun{
+synsets <- getSynsets('house')
 getWords(synsets[[1]])
+}
 }
 

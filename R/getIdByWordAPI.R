@@ -5,8 +5,9 @@
 #' @seealso \code{\link{getIdByWord}}
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
-#' getIdByWordAPI('машина')
+#' @examples \dontrun{
+#' getIdByWordAPI('house')
+#' }
 #' @export
 getIdByWordAPI <- function(word='') {
   if (!is.character(word)) stop('word must be a character')

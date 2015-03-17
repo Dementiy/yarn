@@ -4,8 +4,9 @@
 #' @return A list of synsets
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
+#' @examples \dontrun{
 #' getSynsets(131)
+#' }
 #' @export
 getSynsetsAPI <- function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -25,9 +26,10 @@ getSynsetsAPI <- function(word_id) {
 #' 
 #' @param synset_object The synset
 #' @return An integer vector holding IDs words
-#' @examples
+#' @examples \dontrun{
 #' synsets <- getSynsetsAPI(word_id = 131)
 #' getWordsIdsFromSynset(synsets[[1]])
+#' }
 #' @export
 getWordsIdsFromSynset <- function(synset_object) {
   as.numeric(xmlSApply(getNodeSet(synset_object, "words-ids/words-id"), xmlValue))

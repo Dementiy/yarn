@@ -17,8 +17,10 @@ A list of synsets
 Get a full list of known synsets with page breakdown
 }
 \examples{
+\dontrun{
 getSynsetsByIdAPI(page=1)
 getSynsetsByIdAPI(id=1)
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}

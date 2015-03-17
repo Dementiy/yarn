@@ -15,7 +15,9 @@ A list of synsets
 Get synsets for a given word
 }
 \examples{
-getSynsets('музыка')
+\dontrun{
+getSynsets('house')
+}
 }
 \seealso{
 \code{\link{getSynsetsAPI}}

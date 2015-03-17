@@ -17,11 +17,13 @@ A list with objects of class Word
 Get a list of all words from a YARN dictionary
 }
 \examples{
-word_objs <- getWordsAPI(q = 'машина')
+\dontrun{
+word_objs <- getWordsAPI(q = 'house')
 words2df(word_objs)
 
 word_objs <- getWordsAPI(page = 2)
 words2df(word_objs)
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}

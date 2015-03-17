@@ -5,9 +5,10 @@
 #' @return A list of synsets
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
+#' @examples \dontrun{
 #' getSynsetsByIdAPI(page=1)
 #' getSynsetsByIdAPI(id=1)
+#' }
 #' @export
 getSynsetsByIdAPI <- function(page=1, id='') {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -30,8 +31,9 @@ getSynsetsByIdAPI <- function(page=1, id='') {
 #' A list of the synsets including specified word `word`
 #' @param word The input word
 #' @return A list of synsets
-#' @examples
-#' searchSynsetsAPI('кот')
+#' @examples \dontrun{
+#' searchSynsetsAPI('house')
+#' }
 #' @export
 searchSynsetsAPI <- function(word='') {
   if (!requireNamespace("httr", quietly = TRUE)) {

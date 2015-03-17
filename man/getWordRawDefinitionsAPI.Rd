@@ -6,7 +6,7 @@
 getWordRawDefinitionsAPI(word_id = "")
 }
 \arguments{
-\item{id}{The input word id}
+\item{word_id}{The input word id}
 }
 \value{
 A list of objects holding definitions for a given word id
@@ -15,8 +15,10 @@ A list of objects holding definitions for a given word id
 Definitions from the "raw" dictionaries for a given word id
 }
 \examples{
-word_id <- getIdByWordAPI("машина")
+\dontrun{
+word_id <- getIdByWordAPI("house")
 definitions2df(getWordRawDefinitionsAPI(word_id))
+}
 }
 \seealso{
 \code{\link{getWordDefinitionsAPI}}

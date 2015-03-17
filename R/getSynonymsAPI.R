@@ -5,9 +5,10 @@
 #' @seealso \code{\link{synonyms}, \link{getRawSynonymsAPI}}
 #' @references
 #' Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' words2df(getSynonymsAPI(word_id))
+#' }
 #' @export
 getSynonymsAPI <-function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {
@@ -26,9 +27,10 @@ getSynonymsAPI <-function(word_id) {
 #' @param word_id Id
 #' @return A list holding the synonums for a given word id
 #' @seealso \code{\link{getSynonymsAPI}}
-#' @examples
-#' word_id <- getIdByWordAPI("машина")
+#' @examples \dontrun{
+#' word_id <- getIdByWordAPI("house")
 #' words2df(getRawSynonymsAPI(word_id))
+#' }
 #' @export
 getRawSynonymsAPI <-function(word_id) {
   if (!requireNamespace("httr", quietly = TRUE)) {

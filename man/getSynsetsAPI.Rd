@@ -15,7 +15,9 @@ A list of synsets
 Get synsets for a given word id
 }
 \examples{
+\dontrun{
 getSynsets(131)
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}

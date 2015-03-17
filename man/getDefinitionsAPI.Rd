@@ -17,11 +17,13 @@ A list of objects holding definitions for a given id
 Get a list of all definitions with page breakdown
 }
 \examples{
+\dontrun{
 definition_objs <- getDefinitionsAPI(page=1)
 definitions2df(definition_objs)
 
 definition_obj <- getDefinitionsAPI(id=1)
 definitions2df(definition_obj)
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}

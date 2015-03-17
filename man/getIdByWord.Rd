@@ -15,7 +15,9 @@ ID
 Get the ID for a given word
 }
 \examples{
-getIdByWord('музыка')
+\dontrun{
+getIdByWord('house')
+}
 }
 \seealso{
 \code{\link{getWordById}, \link{getIdByWordAPI}}

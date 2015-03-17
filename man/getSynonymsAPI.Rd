@@ -15,8 +15,10 @@ A list holding the synonums for a given word id
 Get synonymous for a given word id
 }
 \examples{
-word_id <- getIdByWordAPI("машина")
+\dontrun{
+word_id <- getIdByWordAPI("house")
 words2df(getSynonymsAPI(word_id))
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}

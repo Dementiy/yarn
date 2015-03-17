@@ -6,7 +6,7 @@
 getExamplesAPI(word_id = "")
 }
 \arguments{
-\item{id}{The input word id}
+\item{word_id}{The input word id}
 }
 \value{
 A list of objects holding examples for a given word id
@@ -15,8 +15,10 @@ A list of objects holding examples for a given word id
 Word usage examples, bound to the given word id in synsets
 }
 \examples{
-word_id <- getIdByWordAPI("машина")
+\dontrun{
+word_id <- getIdByWordAPI("house")
 examples2df(getExamplesAPI(word_id))
+}
 }
 \seealso{
 \code{\link{getRawExamplesAPI}}

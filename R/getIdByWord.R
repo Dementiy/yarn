@@ -3,15 +3,17 @@
 #' @param word The input word
 #' @return ID
 #' @seealso \code{\link{getWordById}, \link{getIdByWordAPI}}
-#' @examples
-#' getIdByWord('музыка')
+#' @examples \dontrun{
+#' getIdByWord('house')
+#' }
 #' @export
 getIdByWord <- function(word = "") {
-  # if (is.null(.yarn$root)) stop('could not find YARN dictionary. Use setYarn() function')
   if (!is.character(word)) stop('word must be a character')
   
   root <- getDict()
-  node <- getNodeSet(root, sprintf('//words/wordEntry/word[text()="%s"]', word))
+  node <- getNodeSet(root, 
+                     sprintf('/ns:yarn/ns:words/ns:wordEntry/ns:word[text()="%s"]', word), 
+                     c(ns = "http://russianword.net"))
   if (identical(node[1], list(NULL))) {
     ''
   } else {

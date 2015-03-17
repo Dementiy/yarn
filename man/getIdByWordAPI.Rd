@@ -15,7 +15,9 @@ ID
 Get the ID for a given word
 }
 \examples{
-getIdByWordAPI('машина')
+\dontrun{
+getIdByWordAPI('house')
+}
 }
 \references{
 Dmitriy Ustalov. YARN API. \url{http://nlpub.ru/YARN/API}
